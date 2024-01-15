@@ -31,6 +31,7 @@ create table if not exists product(
 create table if not exists users(
                                     userID serial primary key ,
                                     name varchar(255),
+    username varchar(255),
     email varchar(255),
     password varchar(255)
     );
