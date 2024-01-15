@@ -1,10 +1,10 @@
 package model;
 
 public class Brand {
-    int brand_id;
-    String brand_name;
-    String website;
-    String description;
+   private int brand_id;
+    private String brand_name;
+   private String website;
+   private String description;
 
     public Brand() {
     }
