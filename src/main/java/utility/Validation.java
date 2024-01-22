@@ -64,4 +64,13 @@ public static boolean phonenumbervalidation(String phonenumber){
             }
         }
     }
+
+    public static boolean website_vilidation(String website){
+
+        String reg="^(https?:\\/\\/(?:www\\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|www\\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|https?:\\/\\/(?:www\\.|(?!www))[a-zA-Z0-9]+\\.[^\\s]{2,}|www\\.[a-zA-Z0-9]+\\.[^\\s]{2,})$";
+        Pattern p = Pattern.compile(reg);
+        Matcher m = p.matcher(website);
+
+        return m.matches();
+    }
 }
