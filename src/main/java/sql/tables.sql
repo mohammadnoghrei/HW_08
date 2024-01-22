@@ -1,8 +1,8 @@
 create table if not exists shareholders(
                                            shareholderId serial primary key ,
-                                           shareholderNname varchar(255),
-    phoneNumber int,
-    nationalCode int
+                                           shareholderName varchar(255),
+    phoneNumber varchar(13),
+    nationalCode varchar(20)
     );
 create table if not exists brand(
                                     brandId serial primary key ,
