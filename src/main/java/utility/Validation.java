@@ -5,6 +5,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Validation {
+
+    public static boolean passwordvalidation(String password){
+        String reg="(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$";
+        Pattern p = Pattern.compile(reg);
+        Matcher m = p.matcher(password);
+
+        return m.matches();
+    }
     public static boolean emailvalidation(String email) {
         String reg="^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,})$";
         Pattern p = Pattern.compile(reg);
