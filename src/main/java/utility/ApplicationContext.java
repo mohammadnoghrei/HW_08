@@ -1,12 +1,8 @@
 package utility;
 
 import connection.Jdbcconnection;
-import repository.Brandrepository;
-import repository.ShareholderRepository;
-import repository.UserReposority;
-import service.Brandservice;
-import service.ShareholderService;
-import service.Userservice;
+import repository.*;
+import service.*;
 
 import java.sql.Connection;
 
@@ -19,19 +15,29 @@ public class ApplicationContext {
     private static final ShareholderService SHAREHOLDER_SERVICE;
     private static final Brandrepository BRANDREPOSITORY;
     private static final Brandservice BRANDSERVICE;
+    private static Shareholder_Brand_repository SHAREHOLDER_BRAND_REPOSITORY;
+    private static final Shareholde_Brand_service SHAREHOLDE_BRAND_SERVICE;
+    private static final CategoryReposority CATEGORY_REPOSORITY;
+    private static final CategoryService CATEGORY_SERVICE;
+
     static {
         CONNECTION = Jdbcconnection.getConnection();
         USER_REPOSORITY = new UserReposority(CONNECTION);
         USERSERVICE = new Userservice(USER_REPOSORITY);
         SHAREHOLDER_REPOSITORY = new ShareholderRepository(CONNECTION);
-        SHAREHOLDER_SERVICE =new ShareholderService(SHAREHOLDER_REPOSITORY);
+        SHAREHOLDER_SERVICE =new ShareholderService(SHAREHOLDER_REPOSITORY,SHAREHOLDER_BRAND_REPOSITORY);
         BRANDREPOSITORY =new Brandrepository(CONNECTION);
-        BRANDSERVICE=new Brandservice(BRANDREPOSITORY);
+        BRANDSERVICE=new Brandservice(BRANDREPOSITORY,SHAREHOLDER_BRAND_REPOSITORY);
+        SHAREHOLDER_BRAND_REPOSITORY =new Shareholder_Brand_repository(CONNECTION);
+        SHAREHOLDE_BRAND_SERVICE = new Shareholde_Brand_service(SHAREHOLDER_BRAND_REPOSITORY,SHAREHOLDER_REPOSITORY,BRANDREPOSITORY);
+        CATEGORY_REPOSORITY =new CategoryReposority(CONNECTION);
+        CATEGORY_SERVICE = new CategoryService(CATEGORY_REPOSORITY);
     }
     public static Userservice getUserService(){
         return USERSERVICE;
     }
 public static ShareholderService getShareholderService(){return SHAREHOLDER_SERVICE;}
     public static Brandservice getBrandservice(){return BRANDSERVICE;}
-
+    public static Shareholde_Brand_service getShareholdeBrandService(){return SHAREHOLDE_BRAND_SERVICE;}
+    public static CategoryService getCategoryService(){return CATEGORY_SERVICE;}
 }
