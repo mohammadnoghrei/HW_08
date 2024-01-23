@@ -33,15 +33,16 @@ public class Userservice {
             }
         }
 
-        if (!Validation.emailvalidation(email))
-            System.out.println("your email is wrong");
-
         System.out.println("Please enter your password:");
-        String password = scanner.nextLine();
-
-        System.out.println("Please enter your national code:");
-
-
+        String password;
+        while (true) {
+            password = scanner.nextLine();
+            if (Validation.passwordvalidation(password)){
+                break;
+            }else {
+                System.out.println("please enter a valid password");
+            }
+        }
 
         User user = new User(name, username,email, password);
 
