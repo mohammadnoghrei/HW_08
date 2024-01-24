@@ -54,7 +54,7 @@ public class ShareholderService {
 
         int result= shareholderRepository.delete(id);
         if (result==1){
-            shareholder_brand_repository.delete_shareholder(id);
+//            shareholder_brand_repository.delete_shareholder(id);
             System.out.println("shareholder deleted");}
         else {
             System.out.println("please enter valid id");
