@@ -61,10 +61,12 @@ public class Userservice {
         String password = scanner.nextLine();
 
         User user = userReposority.find(username,password);
-        if (user == null)
+        if (user == null){
             System.out.println("Please register first");
-        else if (!user.getPassword().equals(password))
+            singUp();}
+        else if (!user.getPassword().equals(password)){
             System.out.println("Please enter correct password");
+        signIn();}
         else
             System.out.println("WELCOME " + user.getUsername());
     }
