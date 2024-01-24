@@ -49,6 +49,17 @@ public class Brandrepository {
     }
 
     public int delete(int id) throws SQLException {
+        String delete2 = "DELETE FROM product WHERE brandId =?;  ";
+        PreparedStatement preparedStatement3 = connection.prepareStatement(delete2);
+        preparedStatement3.setInt(1, id);
+        int result3 = preparedStatement3.executeUpdate();
+
+        String delete = "DELETE FROM shareholder_brand WHERE brandId =?;  ";
+        PreparedStatement preparedStatement2 = connection.prepareStatement(delete);
+        preparedStatement2.setInt(1, id);
+        int result2 = preparedStatement2.executeUpdate();
+
+
         String deleteUser = "DELETE FROM brand WHERE brandId = ?;  ";
         PreparedStatement preparedStatement = connection.prepareStatement(deleteUser);
         preparedStatement.setInt(1, id);
