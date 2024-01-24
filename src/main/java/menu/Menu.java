@@ -95,7 +95,7 @@ Scanner scanner=new Scanner(System.in);
                 case 0->{end =false;break;}
                 case 1 -> ApplicationContext.getShareholderService().delete_shareholder();
                 case 2 -> ApplicationContext.getBrandservice().delete_brand();
-                case 5 -> ApplicationContext.getCategoryService().delete_category();
+                case 3 -> ApplicationContext.getCategoryService().delete_category();
                 case 4 -> ApplicationContext.getProductservice().delete_product();
                 default -> {
                     System.out.println("please enter valid number");
