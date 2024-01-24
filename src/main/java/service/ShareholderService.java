@@ -50,7 +50,7 @@ public class ShareholderService {
         shareholderRepository.shareholderlist();
         System.out.println("please select id for delete");
         int id =scanner.nextInt();
-        shareholder_brand_repository.delete_shareholder(id);
+//        shareholder_brand_repository.delete_shareholder(id);
 
         int result= shareholderRepository.delete(id);
         if (result==1){
@@ -74,7 +74,7 @@ public class ShareholderService {
                 scanner.nextLine();
                 System.out.println("please enter new name");
                 String name =scanner.nextLine();
-                 int result=  shareholderRepository.edit_shareholder_name(id,name);}
+                 int result=  shareholderRepository.edit_shareholder_name(id,name);break;}
 
         case 2 ->{
                 System.out.println("please enter id for editing");
@@ -88,7 +88,7 @@ public class ShareholderService {
                     break;
                 else System.out.println("please enter a valid number");
             }
-                int result=  shareholderRepository.edit_shareholder_phonenumber(id,phoneNumber);}
+                int result=  shareholderRepository.edit_shareholder_phonenumber(id,phoneNumber);break;}
 
             case 3 ->{
                 System.out.println("please enter id for editing");
@@ -103,7 +103,7 @@ public class ShareholderService {
                     }else {
                         System.out.println("please enter a valid national code");
                     }
-                int result=  shareholderRepository.edit_shareholder_nationalCode(id,nationalCode);}
+                int result=  shareholderRepository.edit_shareholder_nationalCode(id,nationalCode);break;}
         }
         }
 

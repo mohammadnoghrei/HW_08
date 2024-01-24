@@ -34,7 +34,7 @@ public class Shareholder_Brand_repository {
         return result;
     }
     public int delete_shareholder(int id) throws SQLException {
-        String deleteUser = "DELETE FROM shareholder_brand WHERE shareholderId = ?;  ";
+        String deleteUser = "DELETE FROM shareholder_brand WHERE shareholderId = ?;  ;  ";
         PreparedStatement preparedStatement = connection.prepareStatement(deleteUser);
         preparedStatement.setInt(1, id);
         int result = preparedStatement.executeUpdate();
