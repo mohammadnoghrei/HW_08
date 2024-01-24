@@ -40,6 +40,11 @@ public class CategoryReposority {
         return preparedStatement.executeUpdate();
     }
     public int delete(int id) throws SQLException {
+        String delete = "DELETE FROM product WHERE categoryId =?;  ";
+        PreparedStatement preparedStatement2 = connection.prepareStatement(delete);
+        preparedStatement2.setInt(1, id);
+        int result2 = preparedStatement2.executeUpdate();
+
         String deleteUser = "DELETE FROM category WHERE categoryId = ?;  ";
         PreparedStatement preparedStatement = connection.prepareStatement(deleteUser);
         preparedStatement.setInt(1, id);
