@@ -28,7 +28,7 @@ public class CategoryService {
         else System.out.println("something is wrong");
     }
 
-    public void edit_brand() throws SQLException {
+    public void edit_category() throws SQLException {
 
         System.out.println("1--> edit name \n2--> description");
         int edit = scanner.nextInt();
@@ -41,6 +41,7 @@ public class CategoryService {
                 scanner.nextLine();
                 String name = scanner.nextLine();
                 int result = categoryReposority.edit_category_name(id, name);
+                break;
             }
 
             case 2 -> {
@@ -50,7 +51,7 @@ public class CategoryService {
                 scanner.nextLine();
                 String description = scanner.nextLine();
                 int result = categoryReposority.edit_category_description(id, description);
-            }
+            break;}
         }
     }
 
