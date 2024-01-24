@@ -3,10 +3,7 @@ package repository;
 import model.Product;
 import model.Shareholder;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class Productrepository {
     Connection connection;
@@ -47,5 +44,35 @@ public class Productrepository {
             System.out.println("SHAREHOLDER:  id:"+id+"  name:"+name+"  categoryid:"+categoryid+"  brandid:"+branid);
 
         }
+    }
+
+    public int edit_product_name(int id ,String name) throws SQLException {
+        String edit = "UPDATE product set productName=? WHERE productId= ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(edit);
+        preparedStatement.setString(1,name);
+        preparedStatement.setInt(2,id);
+        return preparedStatement.executeUpdate();
+    }
+
+    public int edit_createDate(int id , Date date) throws SQLException {
+        String edit = "UPDATE product set createDate=? WHERE productId= ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(edit);
+        preparedStatement.setDate(1,date);
+        preparedStatement.setInt(2,id);
+        return preparedStatement.executeUpdate();
+    }
+    public int edit_categoryId(int id ,int categoryid) throws SQLException {
+        String edit = "UPDATE product set categoryId=? WHERE productId= ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(edit);
+        preparedStatement.setInt(1,categoryid);
+        preparedStatement.setInt(2,id);
+        return preparedStatement.executeUpdate();
+    }
+    public int edit_brandId(int id ,int brandid) throws SQLException {
+        String edit = "UPDATE product set brandId=? WHERE productId= ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(edit);
+        preparedStatement.setInt(1,brandid);
+        preparedStatement.setInt(2,id);
+        return preparedStatement.executeUpdate();
     }
 }

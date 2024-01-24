@@ -44,14 +44,13 @@ public class Product {
         this.product_name = product_name;
     }
 
-    public Date getCrate_date() {
-        return crate_date;
+    public java.sql.Date getCrate_date() {
+        return (java.sql.Date) crate_date;
     }
 
     public void setCrate_date(Date crate_date) {
         this.crate_date = crate_date;
     }
-
     public int getCategory_id() {
         return category_id;
     }
